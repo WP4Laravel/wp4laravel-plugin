@@ -1,0 +1,14 @@
+{
+    "name": "wp4laravel/wp4laravel-plugin",
+    "description": "Wordpress MU plugin for the WP4Laravel concept",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "IN10dev",
+            "email": "development@in10.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
