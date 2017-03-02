@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Plugin Name: WP4Laravel
+ * Description: A framework plugin for WP4Laravel.
+ * Author: IN10dev
+ * Author URI: https://in10.nl
+ * Version: 0.1
+ * Plugin URI: https://github.com/wp4laravel/wp4laravel-plugin
+ */
+
 require_once(__DIR__.'/src/config/storage.php');
 require_once(__DIR__.'/src/config/template.php');
 require_once(__DIR__.'/src/config/yoast.php');
