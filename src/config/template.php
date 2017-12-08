@@ -9,18 +9,18 @@ add_action('registered_post_type', function () {
 function filter_templates($templates)
 {
     if (!defined('WP_TEMPLATE_DIR')) {
-        return [];
+        return $templates;
     }
 
     if (!$type = get_post_type()) {
-        return [];
+        return $templates;
     }
 
 
     $path = WP_TEMPLATE_DIR.$type;
 
     if (!is_dir($path)) {
-        return [];
+        return $templates;
     }
 
     $filtered = array_filter(scandir($path), function ($item) {
@@ -31,5 +31,5 @@ function filter_templates($templates)
         return str_replace(".blade.php", "", $item);
     }, $filtered);
 
-    return array_combine($list, $list);
+    return array_merge($templates, array_combine($list, $list));
 }
