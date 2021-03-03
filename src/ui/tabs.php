@@ -17,11 +17,11 @@ if (in_array('help', reset($tabs))) {
     /*
      * Remove help tab.
      */
-    add_filter('contextual_help', function ($old_help, $screen_id, $screen) {
+    add_action('admin_head', 'wp4laravel_remove_help_tabs');
+    function wp4laravel_remove_help_tabs() {
+        $screen = get_current_screen();
         $screen->remove_help_tabs();
-
-        return $old_help;
-    }, 999, 3);
+    }
 }
 
 if (in_array('screen-options', reset($tabs))) {
