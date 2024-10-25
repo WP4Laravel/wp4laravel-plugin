@@ -17,14 +17,27 @@ function add_blade_templates(array $templates, WP_Theme $theme, WP_Post|null $po
         return $templates;
     }
 
-    $filtered = array_filter(scandir($path), function ($item) {
-        return $item == '.' || $item == '..' || $item == 'default.blade.php' || strpos($item, ".blade.php") === false ? false : true;
-    });
+    $bladeTemplates = [];
 
-    $list = array_map(function ($item) {
-        return str_replace(".blade.php", "", $item);
-    }, $filtered);
+    foreach (scandir($path) as $file) {
+        if (strpos($file, '.blade.php') === false) {
+            continue;
+        }
 
-    return array_merge($templates, array_combine($list, $list));
+        $templateName = str_replace('.blade.php', '', $file);
+
+        $full_path = $path.'/'.$file;
+        if ( preg_match( '|Template Name:(.*)$|mi', file_get_contents( $full_path ), $header ) ) {
+            $templateDescription = $header[1];
+        } else {
+            $templateDescription = $templateName;
+        }
+
+        $bladeTemplates[$templateName] = $templateDescription;
+    }
+
+    sort($bladeTemplates);
+
+    return array_merge($templates, $bladeTemplates);
 }
 
