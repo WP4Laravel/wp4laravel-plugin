@@ -36,7 +36,7 @@ function add_blade_templates(array $templates, WP_Theme $theme, WP_Post|null $po
         $bladeTemplates[$templateName] = $templateDescription;
     }
 
-    sort($bladeTemplates);
+    asort($bladeTemplates);
 
     return array_merge($templates, $bladeTemplates);
 }
