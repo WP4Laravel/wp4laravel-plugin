@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2
+
+Fix bug in template select box.
+
 ## 0.4.1
 
 Add support for WordPress template names inside your Blade templates with: `{{-- Template name: My template --}}`. This gives the template in WordPress a nice name. It works the same as with custom WordPress templates: https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use
